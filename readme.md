@@ -8,10 +8,10 @@ python -m venv venv
 venv\Scripts\activate.bat
 venv\Scripts\Activate.ps1
 
-### macOS
+## macOS
 source myvenv/bin/activate
 
-# Install MongoDB
+# Install mongoDB
 pip install -r requirements.txt
 
 ## pymongo install only
@@ -35,7 +35,7 @@ ctrl Z
 
 # MongoDB connection string
 
-mongodb+srv://<username>:<password>@clustersmu.bcdtwrn.mongodb.net/<clustername>
+mongodb+srv://[username]:[password]@clustersmu.bcdtwrn.mongodb.net/[clustername]
 
 # Reference
 
