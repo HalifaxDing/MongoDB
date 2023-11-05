@@ -8,10 +8,10 @@ python -m venv venv
 venv\Scripts\activate.bat
 venv\Scripts\Activate.ps1
 
-## macOS
+### macOS
 source myvenv/bin/activate
 
-# Install mongoDB
+# Install MongoDB
 pip install -r requirements.txt
 
 ## pymongo install only
@@ -21,14 +21,11 @@ python -m pip install "panda"
 ## panda dateutil only
 python -m pip install python-dateutil
 
-
 # Sign up free tier
 https://www.mongodb.com/cloud/atlas/register
 
-# Create cluster.0
+# Create cluster
 https://www.mongodb.com/docs/atlas/tutorial/create-new-cluster/
-
-
 
 # Start python
 python
@@ -36,8 +33,14 @@ python
 # Exit python
 ctrl Z
 
-mongodb+srv://<username>:<password>@clustersmu.bcdtwrn.mongodb.net/?retryWrites=true&w=majority
+# MongoDB connection string
 
+mongodb+srv://<username>:<password>@clustersmu.bcdtwrn.mongodb.net/<clustername>
 
+# Reference
 
 https://www.mongodb.com/languages/python
+
+# Airbnb Sample Data
+
+http://insideairbnb.com/get-the-data/
