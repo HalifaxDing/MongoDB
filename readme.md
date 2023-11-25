@@ -35,7 +35,7 @@ ctrl Z
 
 # MongoDB connection string
 
-mongodb+srv://[username]:[password]@clustersmu.bcdtwrn.mongodb.net/[clustername]
+mongodb+srv://[username]:[password]@[clustername].bcdtwrn.mongodb.net/
 
 # Reference
 
@@ -44,3 +44,16 @@ https://www.mongodb.com/languages/python
 # Airbnb Sample Data
 
 http://insideairbnb.com/get-the-data/
+
+
+# Exploring database
+
+py_main.py
+
+# Import data from csv file
+
+py_import_csv.py
+
+# Sample query
+
+py_query.py
