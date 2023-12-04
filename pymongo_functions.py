@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import pprint
 
 def connect_database(connection_string):
     try:
@@ -48,6 +49,18 @@ def list_databases(connection_string):
         print(f"An error occurred while listing the databases: {e}")
 
 
+def highlight_keyword(obj, keyword):
+    # Pretty print the object using pprint
+    pp = pprint.PrettyPrinter()
+    output = pp.pformat(obj)
+
+    # Check if the keyword exists in the output
+    if keyword in output:
+        # Highlight the keyword by wrapping it with ANSI escape codes for color (here, using red color)
+        highlighted_output = output.replace(keyword, f"\033[91m{keyword}\033[0m")
+        print(highlighted_output)
+    else:
+        print(output)  # If keyword not found, print the original output as is
 
 
 # # This is added so that many files can reuse the function get_database()
