@@ -1,4 +1,5 @@
 from pymongo_functions import *
+from pprint import pprint
 
 
 # CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
@@ -11,7 +12,7 @@ dbname = get_database(CONNECTION_STRING, "AirBnb_Data")
 
 # Create Collection
 # Default collection selected.
-collection = dbname["Reviews"] 
+collection = dbname["Reviews"]
 # collection = dbname["Listings"]
 
 
