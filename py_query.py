@@ -1,4 +1,5 @@
 from pymongo_functions import *
+from pprint import pprint
 
 
 # CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
@@ -11,7 +12,7 @@ dbname = get_database(CONNECTION_STRING, "AirBnb_Data")
 
 # Create Collection
 # Default collection selected.
-collection = dbname["Reviews"] 
+collection = dbname["Reviews"]
 # collection = dbname["Listings"]
 
 
@@ -80,7 +81,7 @@ collection = dbname["Reviews"]
 # # 6. Count Documents
 # # Use collection "Reviews"
 # document_count = collection.count_documents({})
-# document_count = collection.count_documents({"reviewer_name": "Hank"})
+# # document_count = collection.count_documents({"reviewer_name": "Hank"})
 # print(f"Total documents in collection: {document_count}")
 
 
