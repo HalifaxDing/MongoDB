@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from pprint import pprint
+import pprint
 
 def connect_database(connection_string):
     try:

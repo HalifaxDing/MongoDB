@@ -80,7 +80,7 @@ collection = dbname["Reviews"]
 # # 6. Count Documents
 # # Use collection "Reviews"
 # document_count = collection.count_documents({})
-# document_count = collection.count_documents({"reviewer_name": "Hank"})
+# # document_count = collection.count_documents({"reviewer_name": "Hank"})
 # print(f"Total documents in collection: {document_count}")
 
 
