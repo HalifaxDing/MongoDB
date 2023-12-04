@@ -57,3 +57,7 @@ py_import_csv.py
 # Sample query
 
 py_query.py
+
+# MongoDB Atlas documentation
+
+MongoDB documentation.pdf

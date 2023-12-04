@@ -1,5 +1,4 @@
 from pymongo_functions import *
-from pprint import pprint
 
 
 # CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
@@ -18,6 +17,7 @@ collection = dbname["Reviews"]
 
 
 # # 1. Sort by id
+# # Use collection "Reviews"
 # results = collection.find().sort('id',1).limit(30)
 # for result in results:
 #     print(result)
@@ -47,6 +47,7 @@ collection = dbname["Reviews"]
 
 
 # # 3. Update a Document
+# # Use collection "Reviews"
 # update_query = {"reviewer_name": "Hank", "date": "2023-08-15"}
 # new_values = {"$set": {"date": "2023-08-14"}}
 # collection.update_one(update_query, new_values)
@@ -57,6 +58,7 @@ collection = dbname["Reviews"]
 
 
 # # 4. Delete a Document:
+# # Use collection "Reviews"
 # item = {
 #   "reviewer_name" : "Hank",
 # "date": "2023-08-15"
@@ -75,31 +77,33 @@ collection = dbname["Reviews"]
 
 
 
-# 6. Count Documents
+# # 6. Count Documents
+# # Use collection "Reviews"
 # document_count = collection.count_documents({})
 # document_count = collection.count_documents({"reviewer_name": "Hank"})
 # print(f"Total documents in collection: {document_count}")
 
 
 
-# 7. Aggregate Query
-pipeline = [
-    {"$group": {"_id": "$reviewer_name", "count": {"$sum": 1}}},
-    {"$sort": {"count": -1, "reviewer_name": 1}},
-    {"$limit": 100}
-]
-results = collection.aggregate(pipeline)
-for result in results:
-    print(result)
+# # 7. Aggregate Query
+# # Use collection "Reviews"
+# pipeline = [
+#     {"$group": {"_id": "$reviewer_name", "count": {"$sum": 1}}},
+#     {"$sort": {"count": -1, "reviewer_name": 1}},
+#     {"$limit": 100}
+# ]
+# results = collection.aggregate(pipeline)
+# for result in results:
+#     print(result)
 
 
 
 # # 8. Query with Filters:
 # # Use collection "Listings"
 # # Expected result: Three
-# filtered_results = collection.find({"description": {"$regex": ".*Chateau.*"}}).sort('id',1).limit(30)
+# filtered_results = collection.find({"description": {"$regex": ".*Château.*"}}).sort('id',1).limit(30)
 # for result in filtered_results:
-#     pprint(result)
+#     highlight_keyword(result, "Château")
 
 
 
@@ -110,13 +114,16 @@ for result in results:
 # keyword = "Chateau"
 # search_results = collection.find({"$text": {"$search": keyword}})
 # for result in search_results:
-#     pprint(result)
+#     highlight_keyword(result, "Chateau")
+#     # highlight_keyword(result, "Château")
 #     print()
 
+# # List all indexes
 # indexes = collection.list_indexes()
 # for index in indexes:
 #     print(index)
 
+# # Drop index for text search
 # index_name = "$**_text"
 # if index_name in collection.index_information():
 #     collection.drop_index(index_name)
