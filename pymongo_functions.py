@@ -1,18 +1,23 @@
 from pymongo import MongoClient
 import pprint
 
-def connect_database(connection_string):
+
+# CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
+CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
+
+
+def connect_database():
     try:
         # Create a connection using MongoClient.
-        client = MongoClient(connection_string)
+        client = MongoClient(CONNECTION_STRING)
         return client
     except Exception as e:
         print(f"An error occurred while connecting to the database: {e}")
         return None
 
-def get_database(connection_string, database_name):
+def get_database(database_name):
     try:
-        client = connect_database(connection_string)
+        client = connect_database()
         if client:
             # Create the database or get information about the database
             return client[database_name]
@@ -22,9 +27,9 @@ def get_database(connection_string, database_name):
         print(f"An error occurred while getting the database: {e}")
         return None
 
-def drop_database(connection_string, database_name):
+def drop_database(database_name):
     try:
-        client = connect_database(connection_string)
+        client = connect_database()
         if client:
             client.drop_database(database_name)
             client.close()
@@ -34,9 +39,9 @@ def drop_database(connection_string, database_name):
     except Exception as e:
         print(f"An error occurred while dropping the database: {e}")
 
-def list_databases(connection_string):
+def list_databases():
     try:
-        client = connect_database(connection_string)
+        client = connect_database()
         if client:
             database_list = client.list_database_names()
             client.close()

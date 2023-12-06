@@ -2,13 +2,9 @@ from pymongo_functions import *
 from pprint import pprint
 
 
-# CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
-CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
-
-# list_databases(CONNECTION_STRING)
-
 # Connect Database
-dbname = get_database(CONNECTION_STRING, "AirBnb_Data")
+dbname = get_database("AirBnb_Data")
+
 
 # Create Collection
 # Default collection selected.
@@ -17,11 +13,11 @@ collection = dbname["Reviews"]
 
 
 
-# # 1. Sort by id
-# # Use collection "Reviews"
-# results = collection.find().sort('id',1).limit(30)
-# for result in results:
-#     print(result)
+# 1. Sort by id
+# Use collection "Reviews"
+results = collection.find().sort('id',1).limit(10)
+for result in results:
+    print(result)
 
 
 
@@ -49,8 +45,8 @@ collection = dbname["Reviews"]
 
 # # 3. Update a Document
 # # Use collection "Reviews"
-# update_query = {"reviewer_name": "Hank", "date": "2023-08-15"}
-# new_values = {"$set": {"date": "2023-08-14"}}
+# update_query = {"reviewer_name": "Hank", "date": "2023-08-14"}
+# new_values = {"$set": {"date": "2023-08-15"}}
 # collection.update_one(update_query, new_values)
 
 # result = collection.find_one({"reviewer_name": "Hank", "date": "2023-08-15"})
@@ -61,11 +57,16 @@ collection = dbname["Reviews"]
 # # 4. Delete a Document:
 # # Use collection "Reviews"
 # item = {
-#   "reviewer_name" : "Hank",
-# "date": "2023-08-15"
+#     "reviewer_name" : "Hank",
+#     "special_comments": "Hank is a good reviewer, so am I",
+#     "date": "2023-08-14"
 # }
 # collection.insert_one(item)
-# delete_query = {"reviewer_name": "Hank", "date": "2023-08-15"}
+
+# result = collection.find_one({"reviewer_name": "Hank", "date": "2023-08-14"})
+# pprint(result)
+
+# delete_query = {"reviewer_name": "Hank", "date": "2023-08-14"}
 # collection.delete_one(delete_query)
 
 
