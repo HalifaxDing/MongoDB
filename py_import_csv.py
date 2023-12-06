@@ -1,29 +1,32 @@
 from pymongo_functions import *
 import pandas as pd
 
-# CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
-CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
 
 # Connect Database
-dbname = get_database(CONNECTION_STRING, "AirBnb_Data")
+dbname = get_database("AirBnb_Data")
 
 
-# Import reviews.csv
+# 1. Import Collection - Listings
+# Import listings.csv
 # Create Collection
-collection = dbname["Reviews"]
+collection = dbname["Listings"]
 
 # Read the CSV file
-df = pd.read_csv('reviews.csv')
+df = pd.read_csv('listings.csv')
 
 
-# # Import listings.csv
+
+# # 2. Import Collection - Reviews
+# # Import reviews.csv
 # # Create Collection
-# collection = dbname["Listings"]
+# collection = dbname["Reviews"]
 
 # # Read the CSV file
-# df = pd.read_csv('listings.csv')
+# df = pd.read_csv('reviews.csv')
 
 
+
+# # 3. Import Collection - Calendar
 # # Import calendar.csv - Too big - Exceed Database Size
 # # Create Collection
 # collection = dbname["Calendar"]
@@ -32,8 +35,11 @@ df = pd.read_csv('reviews.csv')
 # df = pd.read_csv('calendar.csv')
 
 
+
 # Convert the data to a dictionary to insert into MongoDB
 data = df.to_dict(orient='records')
+
+print("Start importing.")
 
 collection.insert_many(data)
 

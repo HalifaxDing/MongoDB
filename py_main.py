@@ -2,19 +2,15 @@ from pymongo_functions import *
 from dateutil import parser
 
 
-# CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
-CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.mongodb.net/"
-
-
-# # 1. List Databases
-# list_databases(CONNECTION_STRING)
+# 1. List Databases
+list_databases()
 
 
 # # 2. Connect Database
-# dbname = get_database(CONNECTION_STRING, "Default_DB")
+# dbname = get_database("Default_DB")
 # print(dbname)
 
-# Create a new collection
+# # Create a new collection
 # collection_name = dbname["Test_Collection"]
 
 
@@ -35,10 +31,12 @@ CONNECTION_STRING = "mongodb+srv://<username>:<password>@<clustername>.bcdtwrn.m
 #   "expiry_date" : expiry
 # }
 # collection_name.insert_one(item_1)
+# print()
+# print("Data inserted!")
 
 
 # # 5. Drop Database
-# drop_database(CONNECTION_STRING, "Default_DB")
+# drop_database("Default_DB")
 
 # # Verify
-# list_databases(CONNECTION_STRING)
+# list_databases()
