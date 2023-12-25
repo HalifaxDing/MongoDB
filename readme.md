@@ -6,10 +6,11 @@ python -m venv venv
 
 ## activate
 venv\Scripts\activate.bat
+
 venv\Scripts\Activate.ps1
 
 ## macOS
-source myvenv/bin/activate
+source venv/bin/activate
 
 # Install mongoDB
 pip install -r requirements.txt
