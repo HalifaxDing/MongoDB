@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ## pymongo install only
 python -m pip install "pymongo[srv]"
 ## panda install only
-python -m pip install "panda" 
+python -m pip install "pandas" 
 ## panda dateutil only
 python -m pip install python-dateutil
 
